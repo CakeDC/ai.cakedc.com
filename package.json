@@ -1,4 +1,19 @@
 {
+  "name": "ai.cakedc.com",
+  "private": true,
+  "description": "Curated hub of plugins and tools for building AI into CakePHP applications",
+  "license": "MIT",
+  "homepage": "https://ai.cakedc.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CakeDC/ai.cakedc.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CakeDC/ai.cakedc.com/issues"
+  },
+  "engines": {
+    "node": ">=22"
+  },
   "devDependencies": {
     "mermaid": "^11.12.0",
     "vitepress": "^2.0.0-alpha.12",
