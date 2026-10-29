@@ -7,29 +7,24 @@
           <span class="ai-brand-text">CakePHP <span class="ai-brand-muted">AI</span></span>
         </a>
         <nav class="ai-nav">
-          <a href="/getting-started/">Getting Started</a>
-          <a href="/agents/">Agents</a>
-          <a href="/providers/">Providers</a>
-          <a href="/rag/">RAG</a>
-          <a href="/panifex/">Panifex</a>
-          <a href="https://github.com/Crustum/cakephp-ai" target="_blank" rel="noopener">GitHub</a>
+          <a href="#start">Start here</a>
+          <a href="#catalog">Catalog</a>
+          <a href="/getting-started/">Docs</a>
+          <a href="https://github.com/CakeDC/ai.cakedc.com" target="_blank" rel="noopener">GitHub</a>
         </nav>
-        <a class="ai-gh" href="/getting-started/">Read the docs <span aria-hidden="true">→</span></a>
+        <a class="ai-gh" href="#catalog">Browse the catalog <span aria-hidden="true">→</span></a>
       </div>
     </header>
     <main>
       <AiHomeHero />
-      <AiHomeProviders />
-      <AiHomeTopics />
-      <AiHomeCapabilities />
+      <AiHomeGoals />
       <AiHomeProducts />
-      <AiHomeInterfaces />
-      <AiHomeCta />
+      <AiHomeStart />
     </main>
     <footer class="ai-footer">
       <div class="ai-footer-inner">
-        <p>Released under the MIT License.</p>
-        <p>Copyright © 2008-2026 Evgeny Tomenko</p>
+        <p>Each listed resource is released under its own license.</p>
+        <p>Curated by CakeDC</p>
       </div>
     </footer>
   </div>
@@ -37,12 +32,9 @@
 
 <script setup>
 import AiHomeHero from './AiHomeHero.vue'
-import AiHomeProviders from './AiHomeProviders.vue'
-import AiHomeTopics from './AiHomeTopics.vue'
-import AiHomeCapabilities from './AiHomeCapabilities.vue'
+import AiHomeGoals from './AiHomeGoals.vue'
 import AiHomeProducts from './AiHomeProducts.vue'
-import AiHomeInterfaces from './AiHomeInterfaces.vue'
-import AiHomeCta from './AiHomeCta.vue'
+import AiHomeStart from './AiHomeStart.vue'
 </script>
 
 <style>

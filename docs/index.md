@@ -3,7 +3,7 @@ layout: false
 sidebar: false
 navbar: false
 title: CakePHP AI
-description: 'Agentic AI for CakePHP 5.4 on PHP 8.4: agents, tools, structured output, streaming, queues and evals across 17 providers through one API.'
+description: 'A curated hub of plugins, MCP servers, Claude skills and CLI tools for building AI into CakePHP apps. Starting with the CakePHP AI stack, more coming soon.'
 ---
 
 <script setup>

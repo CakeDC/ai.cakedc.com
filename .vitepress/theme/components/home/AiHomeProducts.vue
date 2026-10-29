@@ -1,18 +1,24 @@
 <template>
-  <section class="ai-products">
+  <section class="ai-products" id="catalog">
     <div class="ai-prod-inner">
       <div class="ai-sec-head">
         <div>
-          <p class="ai-kicker">Ecosystem</p>
-          <h2 class="ai-h2">One stack for agentic applications.</h2>
+          <p class="ai-kicker">The catalog</p>
+          <h2 class="ai-h2">Everything we've picked <em>so far.</em></h2>
         </div>
-        <p class="ai-lede">Each package does one job and composes with the rest. Adopt the layers you need.</p>
+        <p class="ai-lede">Plugins, MCP servers, Claude skills and CLI tools for CakePHP and AI, chosen by the CakeDC team.</p>
       </div>
+      <ul class="ai-types">
+        <li v-for="t in typeCounts" :key="t.type" :class="{ 'ai-type-empty': !t.count }">
+          <span class="ai-type-label">{{ t.label }}</span>
+          <span class="ai-type-blurb">{{ t.blurb }}</span>
+          <span class="ai-type-status">{{ t.count ? t.count + ' listed' : 'Coming soon' }}</span>
+        </li>
+      </ul>
       <div class="ai-list">
-        <article v-for="p in products" :key="p.slug" class="ai-row">
+        <article v-for="p in plugins" :key="p.slug" class="ai-row">
           <span class="ai-cat">{{ p.category }}</span>
           <div>
-            <span class="ai-stable">{{ p.status === 'stable' ? 'Stable' : 'In progress' }}</span>
             <h3 class="ai-h3">{{ p.title }}</h3>
             <p class="ai-composer">{{ p.composer }}</p>
           </div>
@@ -29,106 +35,18 @@
           </div>
         </article>
       </div>
+      <p class="ai-soon">
+        This is the first batch. More plugins, MCP servers, skills and CLI tools are coming soon.
+        <a :href="suggestUrl" target="_blank" rel="noopener">Suggest a resource →</a>
+      </p>
     </div>
   </section>
 </template>
 
 <script setup>
-// Links mirror .vitepress/plugins-config.js and resolve to existing pages only.
-// github falls back to the org profile when the package repo URL is unverified.
-const org = 'https://github.com/crustum'
-const products = [
-  {
-    slug: 'ai',
-    title: 'CakePHP AI',
-    composer: 'crustum/cakephp-ai',
-    category: 'core',
-    status: 'stable',
-    details: 'Unified API for 17 AI providers: agents with tools and sub-agents, structured output, images, audio, transcription, embeddings with reranking, streaming, queueing and broadcasting.',
-    link: '/getting-started/',
-    github: 'https://github.com/Crustum/cakephp-ai',
-  },
-  {
-    slug: 'interaction',
-    title: 'AiInteraction',
-    composer: 'crustum/ai-interaction',
-    category: 'core',
-    status: 'stable',
-    details: 'UI-agnostic interaction primitives: turn runner, slash commands, sessions with titles, input history, per-user preferences and a response-stop contract.',
-    link: '/interaction/',
-    github: org,
-  },
-  {
-    slug: 'tui',
-    title: 'AiTui',
-    composer: 'crustum/ai-tui',
-    category: 'terminal',
-    status: 'stable',
-    details: 'Fastest way in: terminal chat with any agent via a single ai chat command with key bindings, input recall and tool-call cards on AiInteraction turns.',
-    link: '/interaction/tui',
-    github: org,
-  },
-  {
-    slug: 'nexus',
-    title: 'AiNexus',
-    composer: 'crustum/ai-nexus',
-    category: 'web',
-    status: 'stable',
-    details: 'Web dashboard and playground for agents: discovery, streaming chat, attachments and retention.',
-    link: '/debugger/index',
-    github: org,
-  },
-  {
-    slug: 'panifex',
-    title: 'Panifex',
-    composer: 'crustum/panifex',
-    category: 'harness',
-    status: 'stable',
-    details: 'CakePHP harness for coding agents: autonomous runs, terminal UI, web chat-ops and other channels, plus 14 agent variants, 35 tools, guards and healing.',
-    link: '/panifex/',
-    github: org,
-  },
-  {
-    slug: 'mcp',
-    title: 'MCP',
-    composer: 'crustum/mcp',
-    category: 'protocol',
-    status: 'stable',
-    details: 'Model Context Protocol servers and clients for CakePHP: tools, resources, and prompts over HTTP or STDIO, OAuth via Tessera, and interactive MCP Apps.',
-    link: '/mcp/',
-    github: 'https://github.com/Crustum/mcp',
-  },
-  {
-    slug: 'ignis',
-    title: 'Ignis',
-    composer: 'crustum/ignis',
-    category: 'dev',
-    status: 'stable',
-    details: 'Coding-assistant toolkit: composed guidelines, on-demand skills, a live MCP server, and project rules that teach agents your application.',
-    link: '/ignis/',
-    github: 'https://github.com/Crustum/ignis',
-  },
-  {
-    slug: 'explorator',
-    title: 'Explorator',
-    composer: 'crustum/explorator',
-    category: 'search',
-    status: 'stable',
-    details: 'Full-text and vector search for CakePHP: collection, database, Algolia, Meilisearch, and Typesense drivers with RAG-ready embeddings.',
-    link: '/rag/',
-    github: 'https://github.com/Crustum/explorator',
-  },
-  {
-    slug: 'demo',
-    title: 'AiDemo',
-    composer: 'cakephp/app skeleton',
-    category: 'demo',
-    status: 'stable',
-    details: 'Runnable demo application: an Assistant agent with four tools (weather, location, temperature conversion, approval-gated email) over HTTP and console.',
-    link: '/demo/',
-    github: org,
-  },
-]
+import { resources, typeCounts, suggestUrl } from './hub-data.js'
+
+const plugins = resources.filter((r) => r.type === 'plugin')
 </script>
 
 <style scoped>
@@ -177,7 +95,7 @@ const products = [
 }
 
 .ai-list {
-  margin-top: 55px;
+  margin-top: 48px;
   border-top: 1px solid var(--ai-border-soft);
 }
 
@@ -196,14 +114,6 @@ const products = [
   font-weight: 500;
   text-transform: uppercase;
   color: var(--ai-text-soft);
-}
-
-.ai-stable {
-  font-family: var(--ai-font-mono);
-  font-size: calc(var(--ai-fs-tag) * var(--ai-font-scale, 1));
-  font-weight: 500;
-  text-transform: uppercase;
-  color: var(--ai-success);
 }
 
 .ai-h3 {
@@ -265,6 +175,78 @@ const products = [
 
   .ai-card-links {
     justify-content: flex-start;
+  }
+}
+
+.ai-h2 em {
+  font-family: var(--ai-font-serif);
+  color: var(--ai-brand-1);
+}
+
+.ai-types {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 40px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-types li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 24px;
+  background: var(--ai-bg-primary);
+  border: 1px solid var(--ai-border-soft);
+  border-radius: var(--ai-radius-md);
+}
+
+.ai-type-empty {
+  background: transparent;
+  border-style: dashed;
+}
+
+.ai-type-label {
+  font-size: calc(var(--ai-fs-h3-row) * var(--ai-font-scale, 1));
+  font-weight: 600;
+  color: var(--ai-text-primary);
+}
+
+.ai-type-blurb {
+  font-size: calc(var(--ai-fs-small) * var(--ai-font-scale, 1));
+  color: var(--ai-text-weak);
+}
+
+.ai-type-status {
+  font-family: var(--ai-font-mono);
+  font-size: calc(var(--ai-fs-tag) * var(--ai-font-scale, 1));
+  text-transform: uppercase;
+  color: var(--ai-success);
+}
+
+.ai-type-empty .ai-type-status {
+  color: var(--ai-text-soft);
+}
+
+.ai-soon {
+  margin: 32px 0 0;
+  padding: 20px 24px;
+  font-size: calc(var(--ai-fs-body) * var(--ai-font-scale, 1));
+  color: var(--ai-text-weak);
+  background: var(--ai-bg-weak);
+  border-radius: var(--ai-radius-md);
+}
+
+.ai-soon a {
+  margin-left: 8px;
+  font-weight: 600;
+  color: var(--ai-brand-1);
+}
+
+@media (min-width: 960px) {
+  .ai-types {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 </style>

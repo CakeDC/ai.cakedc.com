@@ -2,38 +2,35 @@
   <section class="ai-hero">
     <div class="ai-hero-inner">
       <div class="ai-hero-copy">
-        <p class="ai-status"><span class="ai-pulse" aria-hidden="true"></span>CakePHP 5.4 · PHP 8.4 · Stable</p>
-        <h1 class="ai-hero-title">Agentic AI for CakePHP, <em>without the glue code</em></h1>
+        <p class="ai-status"><span class="ai-pulse" aria-hidden="true"></span>Curated by CakeDC</p>
+        <h1 class="ai-hero-title">Plugins and tools for <em>AI in CakePHP</em></h1>
         <p class="ai-hero-subtitle">
-          One consistent API for multiple providers. Agents, tools, structured output,
-          streaming, queues and evals, built the CakePHP way.
+          The place to look when you build AI features into a CakePHP app, or use AI
+          to build one. We're starting with the CakePHP AI stack, and more plugins,
+          MCP servers, Claude skills and CLI tools are coming soon.
         </p>
         <div class="ai-hero-actions">
-          <a class="ai-btn ai-btn-primary" href="/getting-started/">Get started <span aria-hidden="true">→</span></a>
-          <a class="ai-btn-text" href="https://github.com/Crustum/cakephp-ai" target="_blank" rel="noopener">View on GitHub</a>
+          <a class="ai-btn ai-btn-primary" href="#catalog">Browse the catalog <span aria-hidden="true">→</span></a>
+          <a class="ai-btn-text" href="/getting-started/">Quickstart</a>
         </div>
-        <dl class="ai-stats">
-          <div><dt>Providers</dt><dd>17</dd></div>
-          <div><dt>License</dt><dd>MIT</dd></div>
-        </dl>
       </div>
       <div class="ai-hero-panel">
         <div class="ai-panel-head">
           <div>
-            <p class="ai-panel-kicker">2 min setup</p>
-            <p class="ai-panel-title">Install in several commands</p>
+            <p class="ai-panel-kicker">The catalog today</p>
+            <p class="ai-panel-title">{{ total }} resources, growing</p>
           </div>
           <span class="ai-panel-icon" aria-hidden="true">⌁</span>
         </div>
-        <AiCode :code="installSnippet" lang="bash" title="terminal" dark />
+        <ul class="ai-type-list">
+          <li v-for="t in typeCounts" :key="t.type">
+            <span class="ai-type-name">{{ t.label }}</span>
+            <span :class="['ai-type-count', { 'ai-type-soon': !t.count }]">{{ t.count ? t.count : 'Soon' }}</span>
+          </li>
+        </ul>
         <p class="ai-panel-note">
-          Multiple providers behind capability defaults. Swap one key, not
-          your application code.
-          <a class="ai-panel-link" href="/providers/">Provider matrix</a>
-          <span aria-hidden="true"> · </span>
-          <a class="ai-panel-link" href="/agents/streaming">Streaming</a>
-          <span aria-hidden="true"> · </span>
-          <a class="ai-panel-link" href="/agents/queueing">Queueing</a>
+          Every entry is picked by the CakeDC team.
+          <a class="ai-panel-link" :href="suggestUrl" target="_blank" rel="noopener">Suggest a resource</a>
         </p>
       </div>
     </div>
@@ -41,20 +38,9 @@
 </template>
 
 <script setup>
-import AiCode from './AiCode.vue'
+import { typeCounts, suggestUrl } from './hub-data.js'
 
-const installSnippet = `composer require crustum/cakephp-ai
-bin/cake plugin load Crustum/Ai
-bin/cake manifest install --plugin Crustum/Ai
-bin/cake migrations migrate`
-const configSnippet = `// config/ai.php
-return [
-    'Ai' => [
-        'defaultProvider' => 'openrouter',
-    ],
-];`
-// <AiCode :code="configSnippet" lang="php" title="config/ai.php" dark />
-
+const total = typeCounts.reduce((n, t) => n + t.count, 0)
 </script>
 
 <style scoped>
@@ -298,5 +284,35 @@ return [
     gap: 50px;
     padding: 88px var(--ai-gutter) 70px;
   }
+}
+
+.ai-type-list {
+  margin: 0;
+  padding: 8px 24px;
+  list-style: none;
+}
+
+.ai-type-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--ai-border-dark);
+}
+
+.ai-type-name {
+  font-size: calc(var(--ai-fs-body) * var(--ai-font-scale, 1));
+  color: var(--ai-text-dark);
+}
+
+.ai-type-count {
+  font-family: var(--ai-font-mono);
+  font-size: calc(var(--ai-fs-chip) * var(--ai-font-scale, 1));
+  text-transform: uppercase;
+  color: var(--ai-accent-rose-light);
+}
+
+.ai-type-soon {
+  color: var(--ai-text-dark-faint);
 }
 </style>

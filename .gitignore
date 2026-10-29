@@ -27,3 +27,6 @@ Thumbs.db
 
 # Dev files
 /dev.cmd
+
+# Brainstorming mockups
+.superpowers/
