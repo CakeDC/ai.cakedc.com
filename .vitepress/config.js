@@ -271,20 +271,13 @@ export default defineConfig({
                     { text: 'Retrieval', link: '/rag/retrieval' }
                 ]
             },
-            {
-                text: 'Observability',
-                collapsed: false,
-                items: [
-                    { text: 'Overview', link: '/observability/' }
-                ]
-            },
-            {
-                text: 'Harness',
-                collapsed: false,
-                items: [
-                    { text: 'Overview', link: '/harness/' }
-                ]
-            },
+            // {
+                // text: 'Observability',
+                // collapsed: false,
+                // items: [
+                    // { text: 'Overview', link: '/observability/' }
+                // ]
+            // },
             {
                 text: 'Panifex',
                 collapsed: false,
@@ -324,27 +317,13 @@ export default defineConfig({
                     { text: 'Terminal', link: '/interaction/tui' }
                 ]
             },
-            {
-                text: 'Examples',
-                collapsed: false,
-                items: [
-                    { text: 'Setup', link: '/examples/setup' }
-                ]
-            },
-            {
-                text: 'Comparisons',
-                collapsed: false,
-                items: [
-                    { text: 'Overview', link: '/comparisons/' }
-                ]
-            },
-            {
-                text: 'Project',
-                collapsed: false,
-                items: [
-                    { text: 'Overview', link: '/project/' }
-                ]
-            }
+            // {
+                // text: 'Examples',
+                // collapsed: false,
+                // items: [
+                    // { text: 'Setup', link: '/examples/setup' }
+                // ]
+            // },
         ],
         // end-sidebar
         // socialLinks: [
@@ -368,7 +347,7 @@ export default defineConfig({
         // },
         footer: {
             message: 'Released under the MIT License.',
-            copyright: 'Copyright © 2008-2026 Evgeny Tomenko'
+            copyright: 'Copyright © 2025-2026'
         },
         lastUpdated: {
             text: 'Updated at',

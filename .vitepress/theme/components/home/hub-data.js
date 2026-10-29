@@ -42,22 +42,22 @@ export const resources = [
   {
     slug: 'interaction', type: 'plugin', title: 'AiInteraction', composer: 'crustum/ai-interaction', category: 'core',
     details: 'UI-agnostic interaction primitives: turn runner, slash commands, sessions with titles, input history, per-user preferences and a response-stop contract.',
-    link: '/interaction/', github: org,
+    link: '/interaction/', github: 'https://github.com/Crustum/ai-interaction',
   },
   {
     slug: 'tui', type: 'plugin', title: 'AiTui', composer: 'crustum/ai-tui', category: 'terminal',
     details: 'Fastest way in: terminal chat with any agent via a single ai chat command with key bindings, input recall and tool-call cards on AiInteraction turns.',
-    link: '/interaction/tui', github: org,
+    link: '/interaction/tui', github: 'https://github.com/Crustum/ai-tui',
   },
   {
     slug: 'nexus', type: 'plugin', title: 'AiNexus', composer: 'crustum/ai-nexus', category: 'web',
     details: 'Web dashboard and playground for agents: discovery, streaming chat, attachments and retention.',
-    link: '/debugger/index', github: org,
+    link: '/debugger/index', github: 'https://github.com/Crustum/ai-nexus',
   },
   {
     slug: 'panifex', type: 'plugin', title: 'Panifex', composer: 'crustum/panifex', category: 'harness',
     details: 'CakePHP harness for coding agents: autonomous runs, terminal UI, web chat-ops and other channels, plus 14 agent variants, 35 tools, guards and healing.',
-    link: '/panifex/', github: org,
+    link: '/panifex/', github: 'https://github.com/Crustum/panifex',
   },
   {
     slug: 'mcp', type: 'plugin', title: 'MCP', composer: 'crustum/mcp', category: 'protocol',

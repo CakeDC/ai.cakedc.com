@@ -34,14 +34,14 @@ export const pluginsConfig = [
     details: 'Web dashboard and playground for agents: discovery, streaming chat, attachments and retention. Early stage — configuration reference only for now.',
     link: '/debugger/index',
     name: 'AiNexus',
-    githubUrl: null
+    githubUrl: 'https://github.com/Crustum/ai-nexus'
   },
   {
     title: 'Panifex',
     details: 'CakePHP harness for coding agents: autonomous runs, terminal UI, web chat-ops and other channels, plus 14 agent variants, 35 tools, guards and healing.',
     link: '/panifex/',
     name: 'Panifex',
-    githubUrl: null
+    githubUrl: 'https://github.com/Crustum/panifex'
   },
   {
     title: 'MCP',
