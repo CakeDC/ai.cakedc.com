@@ -1,0 +1,50 @@
+[
+  {
+    "title": "CakePHP AI",
+    "description": "Unified API for 17 AI providers: agents with tools and sub-agents, structured output, images, audio, transcription, embeddings with reranking, streaming, queueing and broadcasting.",
+    "slug": "Ai",
+    "path": "/getting-started/",
+    "name": "Ai",
+    "githubUrl": "https://github.com/Crustum/cakephp-ai"
+  },
+  {
+    "title": "AiInteraction",
+    "description": "UI-agnostic interaction primitives: turn runner, slash commands, sessions with titles, input history, per-user preferences and a response-stop contract.",
+    "slug": "AiInteraction",
+    "path": "/interaction/",
+    "name": "AiInteraction",
+    "githubUrl": null
+  },
+  {
+    "title": "AiTui",
+    "description": "Fastest way in: terminal chat with any agent via a single ai chat command — key bindings, input recall and tool-call cards on AiInteraction turns.",
+    "slug": "AiTui",
+    "path": "/interaction/tui",
+    "name": "AiTui",
+    "githubUrl": null
+  },
+  {
+    "title": "AiNexus",
+    "description": "Web dashboard and playground for agents: discovery, streaming chat, attachments and retention. Early stage — configuration reference only for now.",
+    "slug": "AiNexus",
+    "path": "/debugger/index",
+    "name": "AiNexus",
+    "githubUrl": null
+  },
+  {
+    "title": "Panifex",
+    "description": "CakePHP harness for coding agents: autonomous runs, terminal UI, web chat-ops and other channels, plus 14 agent variants, 35 tools, guards and healing.",
+    "slug": "Panifex",
+    "path": "/panifex/",
+    "name": "Panifex",
+    "githubUrl": null
+  },
+  {
+    "title": "MCP",
+    "description": "Model Context Protocol servers and clients for CakePHP: tools, resources, and prompts over HTTP or STDIO, OAuth via Tessera, and interactive MCP Apps.",
+    "slug": "Mcp",
+    "path": "/mcp/",
+    "name": "Mcp",
+    "githubUrl": "https://github.com/Crustum/mcp"
+  }
+]

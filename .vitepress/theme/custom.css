@@ -1,0 +1,512 @@
+/* CakePHP Theme Customization */
+:root {
+    --cake-color-link: #2D7EA4;
+    --vp-sidebar-width: 272px;
+    --vp-sidebar-bg-color: var(--vp-c-bg);
+
+    --vp-font-family-base: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+    /* CakePHP Brand Colors - Official Red */
+    --vp-c-brand-1: #d33c43;
+    --vp-c-brand-2: #c8363d;
+    --vp-c-brand-3: #b02e34;
+    --vp-c-brand-soft: rgba(211, 60, 67, 0.14);
+
+    /* Custom accent colors */
+    --vp-c-red-1: #d33c43;
+    --vp-c-red-2: #c8363d;
+    --vp-c-red-3: #b02e34;
+}
+
+/* Dark theme adjustments */
+.dark {
+    --vp-c-brand-1: #ff6b6b;
+    --vp-c-brand-2: #d33c43;
+    --vp-c-brand-3: #c8363d;
+    --vp-c-brand-soft: rgba(255, 107, 107, 0.16);
+
+    --vp-c-bg: #1a1a1a;
+    --vp-c-bg-light: #FFFFFF;
+    --vp-sidebar-bg-color: var(--vp-c-bg);
+}
+
+.VPHero .VPImage {
+    filter: drop-shadow(-2px 4px 15px rgba(64, 64, 64, 0.3));
+}
+
+.dark .VPHero .VPImage {
+    filter: drop-shadow(-2px 4px 15px rgba(211, 60, 67, 0.2));
+}
+
+.vp-doc a {
+    color: var(--cake-color-link);
+}
+
+/* Fix header logo and text spacing */
+.VPNavBarTitle .title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    position: relative;
+    z-index: 21;
+    background: var(--vp-c-bg);
+}
+
+.VPNavBarTitle .VPImage.logo {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 21;
+}
+
+.VPNavBarTitle .title span {
+    font-weight: 600;
+    line-height: 1.1;
+    display: inline-block;
+    max-width: 200px;
+    font-size: 0; /* Hide original text */
+    position: relative;
+    z-index: 21;
+    background: var(--vp-c-bg);
+    padding-right: 0.5rem;
+}
+
+/* Create two-line title effect */
+.VPNavBarTitle .title span::before {
+    content: "CakePHP";
+    display: block;
+    line-height: 1.2;
+    font-size: 1rem;
+    position: relative;
+    z-index: 21;
+}
+
+.VPNavBarTitle .title span::after {
+    content: "AI";
+    display: block;
+    line-height: 1.2;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    position: relative;
+    z-index: 21;
+}
+
+/* Custom styles for VitePress theme */
+
+/* Plugin dropdown menu styling */
+.VPNav .VPNavBar .VPNavBarMenu .VPNavBarMenuLink {
+    font-weight: 500;
+}
+
+.VPNav .VPNavBar .VPNavBarMenu .VPNavBarMenuLink .VPNavBarMenuLinkText {
+    font-size: 0.9rem;
+}
+
+/* Ensure dropdown has enough space for many plugins */
+.VPNav .VPNavBar .VPNavBarMenu .VPNavBarMenuLink .VPNavBarMenuLinkDropdown {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Style the dropdown items */
+.VPNav .VPNavBar .VPNavBarMenu .VPNavBarMenuLink .VPNavBarMenuLinkDropdown .VPNavBarMenuLink {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--vp-c-divider);
+}
+
+.VPNav .VPNavBar .VPNavBarMenu .VPNavBarMenuLink .VPNavBarMenuLinkDropdown .VPNavBarMenuLink:last-child {
+    border-bottom: none;
+}
+
+/* Hover effect for dropdown items */
+.VPNav .VPNavBar .VPNavBarMenu .VPNavBarMenuLink .VPNavBarMenuLinkDropdown .VPNavBarMenuLink:hover {
+    background-color: var(--vp-c-bg-soft);
+}
+
+/* Home page layout */
+.VPHome {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 1.5rem;
+}
+
+/* Hero spans full width */
+/* GitHub-style Admonitions - Target VitePress custom blocks */
+.custom-block {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-left: 0.25rem solid;
+    border-radius: 6px;
+}
+
+.custom-block-title {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.custom-block-title::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+    vertical-align: text-bottom;
+}
+
+.custom-block > p:not(.custom-block-title) {
+    margin: 0.5rem 0 0 0;
+}
+
+.custom-block > p:not(.custom-block-title):first-of-type {
+    margin-top: 0;
+}
+
+.custom-block > p:not(.custom-block-title):last-of-type {
+    margin-bottom: 0;
+}
+
+/* Remove default blockquote styling for admonitions */
+.custom-block blockquote {
+    border-left: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* NOTE - Blue (GitHub colors) */
+.custom-block.note {
+    border-color: #0969da;
+    background-color: #ddf4ff;
+}
+
+.dark .custom-block.note {
+    background-color: rgba(9, 105, 218, 0.1);
+    border-color: #1f6feb;
+}
+
+.custom-block.note .custom-block-title {
+    color: #0969da;
+}
+
+.dark .custom-block.note .custom-block-title {
+    color: #58a6ff;
+}
+
+.custom-block.note .custom-block-title::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='%230969da' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'/%3E%3C/svg%3E");
+}
+
+.dark .custom-block.note .custom-block-title::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='%2358a6ff' d='M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'/%3E%3C/svg%3E");
+}
+
+/* TIP - Green (GitHub colors) */
+.custom-block.tip {
+    border-color: #1a7f37;
+    background-color: #dafbe1;
+}
+
+.dark .custom-block.tip {
+    background-color: rgba(26, 127, 55, 0.1);
+    border-color: #238636;
+}
+
+.custom-block.tip .custom-block-title {
+    color: #1a7f37;
+}
+
+.dark .custom-block.tip .custom-block-title {
+    color: #3fb950;
+}
+
+.custom-block.tip .custom-block-title::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='%231a7f37' d='M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z'/%3E%3C/svg%3E");
+}
+
+.dark .custom-block.tip .custom-block-title::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='%233fb950' d='M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z'/%3E%3C/svg%3E");
+}
+
+/* IMPORTANT - Purple (GitHub colors) */
+.custom-block.important {
+    border-color: #8250df;
+    background-color: #fbefff;
+}
+
+.dark .custom-block.important {
+    background-color: rgba(130, 80, 223, 0.1);
+    border-color: #8957e5;
+}
+
+.custom-block.important .custom-block-title {
+    color: #8250df;
+}
+
+.dark .custom-block.important .custom-block-title {
+    color: #a371f7;
+}
+
+.custom-block.important .custom-block-title::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='%238250df' d='M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'/%3E%3C/svg%3E");
+}
+
+.dark .custom-block.important .custom-block-title::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='%23a371f7' d='M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'/%3E%3C/svg%3E");
+}
+
+/* WARNING - Orange/Yellow (GitHub colors) */
+.custom-block.warning {
+    border-color: #9a6700;
+    background-color: #fff8c5;
+}
+
+.dark .custom-block.warning {
+    background-color: rgba(154, 103, 0, 0.15);
+    border-color: #d29922;
+}
+
+.custom-block.warning .custom-block-title {
+    color: #9a6700;
+}
+
+.dark .custom-block.warning .custom-block-title {
+    color: #f79009;
+}
+
+.custom-block.warning .custom-block-title::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='%239a6700' d='M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'/%3E%3C/svg%3E");
+}
+
+.dark .custom-block.warning .custom-block-title::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='%23f79009' d='M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z'/%3E%3C/svg%3E");
+}
+
+/* CAUTION - Red (GitHub colors) */
+.custom-block.caution {
+    border-color: #cf222e;
+    background-color: #ffebe9;
+}
+
+.dark .custom-block.caution {
+    background-color: rgba(207, 34, 46, 0.1);
+    border-color: #da3633;
+}
+
+.custom-block.caution .custom-block-title {
+    color: #cf222e;
+}
+
+.dark .custom-block.caution .custom-block-title {
+    color: #f85149;
+}
+
+.custom-block.caution .custom-block-title::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='%23cf222e' d='M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'/%3E%3C/svg%3E");
+}
+
+.dark .custom-block.caution .custom-block-title::before {
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' width='16' height='16'%3E%3Cpath fill='%23f85149' d='M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z'/%3E%3C/svg%3E");
+}
+
+/* Ensure code blocks inside admonitions have proper spacing */
+.custom-block pre {
+    margin: 1rem 0;
+}
+
+.custom-block pre:first-child {
+    margin-top: 0;
+}
+
+.custom-block pre:last-child {
+    margin-bottom: 0;
+}
+
+/* Adjust list spacing inside admonitions */
+.custom-block ul,
+.custom-block ol {
+    margin: 0.5rem 0;
+}
+
+.custom-block ul:first-child,
+.custom-block ol:first-child {
+    margin-top: 0;
+}
+
+.custom-block ul:last-child,
+.custom-block ol:last-child {
+    margin-bottom: 0;
+}
+
+/* Wider nav search button; less cramped next to sidebar toggle */
+@media (min-width: 768px) {
+    .VPNavBarSearch {
+        padding-left: 8px;
+    }
+
+    .VPNavBarSearch .DocSearch-Button {
+        min-width: 260px;
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 960px) {
+    .VPNavBarSearch {
+        padding-left: 8px;
+    }
+
+    .VPNavBarSearch .DocSearch-Button {
+        min-width: 300px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .VPNavBarSearch .DocSearch-Button {
+        min-width: 360px;
+    }
+}
+
+/*
+ * Desktop sidebar collapse (SidebarToggle).
+ * VitePress keeps has-sidebar paddings on LocalNav / NavBar / Content;
+ * html.sidebar-collapsed overrides those so the layout reflows.
+ * Title must leave absolute positioning when collapsed — otherwise its
+ * opaque background covers the search in .content (z-index stacking).
+ */
+@media (min-width: 960px) {
+    html.sidebar-collapsed .VPSidebar {
+        display: none !important;
+        width: 0 !important;
+        min-width: 0 !important;
+        max-width: 0 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border: none !important;
+        overflow: hidden !important;
+    }
+
+    html.sidebar-collapsed .VPContent.has-sidebar,
+    html.sidebar-collapsed .VPContent.sidebar-collapsed {
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+    }
+
+    html.sidebar-collapsed .VPLocalNav.has-sidebar {
+        padding-left: 0 !important;
+    }
+
+    html.sidebar-collapsed .VPNavBar.has-sidebar .wrapper {
+        padding: 0 32px;
+    }
+
+    html.sidebar-collapsed .VPNavBar.has-sidebar .container {
+        max-width: calc(var(--vp-layout-max-width) - 64px);
+    }
+
+    html.sidebar-collapsed .VPNavBar.has-sidebar .title {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        z-index: 2 !important;
+        width: auto !important;
+        max-width: none !important;
+        height: calc(var(--vp-nav-height) - 1px) !important;
+        padding: 0 !important;
+        background-color: var(--vp-c-bg) !important;
+    }
+
+    html.sidebar-collapsed .VPNavBar.has-sidebar .content,
+    html.sidebar-collapsed .VPNavBar.has-sidebar .divider {
+        padding-left: 0 !important;
+    }
+
+    html.sidebar-collapsed .VPNavBar.has-sidebar .content-body {
+        padding-right: 0 !important;
+    }
+
+    /*
+     * Keep nav opaque in collapsed mode. Transparent title was letting
+     * scrolled article text (e.g. code) show through the brand area.
+     * Relative title + solid bg does not cover search (unlike absolute).
+     */
+    html.sidebar-collapsed .VPNav,
+    html.sidebar-collapsed .VPNavBar,
+    html.sidebar-collapsed .VPNavBar .wrapper,
+    html.sidebar-collapsed .VPNavBar .container,
+    html.sidebar-collapsed .VPNavBarTitle,
+    html.sidebar-collapsed .VPNavBarTitle .title,
+    html.sidebar-collapsed .VPNavBarTitle .title span {
+        background-color: var(--vp-c-bg) !important;
+        background: var(--vp-c-bg) !important;
+    }
+
+    html.sidebar-collapsed .VPNavBarTitle.has-sidebar .title {
+        border-bottom-color: transparent;
+    }
+
+    /*
+     * "On this page" flyout still uses left: sidebar-width + 32px.
+     * With sidebar hidden that offset is wrong — pin under the control.
+     */
+    html.sidebar-collapsed .VPLocalNavOutlineDropdown .items {
+        left: 32px !important;
+        right: auto !important;
+    }
+}
+
+@media (min-width: 1440px) {
+    html.sidebar-collapsed .VPLocalNav.has-sidebar,
+    html.sidebar-collapsed .VPContent.has-sidebar,
+    html.sidebar-collapsed .VPNavBar.has-sidebar .content,
+    html.sidebar-collapsed .VPNavBar.has-sidebar .divider {
+        padding-left: 0 !important;
+    }
+
+    html.sidebar-collapsed .VPNavBar.has-sidebar .content-body {
+        padding-right: 0 !important;
+    }
+
+    html.sidebar-collapsed .VPLocalNavOutlineDropdown .items {
+        left: 32px !important;
+    }
+}
+
+/* Widen the doc content column: VitePress caps .content-container at 688px
+   when the right aside is present, which squeezes wide tables. */
+.VPDoc.has-aside .content-container {
+    max-width: 800px !important;
+}
+
+/* Vertical headers for the providers capability matrix: all headers except
+   Provider read bottom-to-top. */
+.providers-matrix table:first-of-type th:nth-child(n+2) {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    white-space: nowrap;
+    vertical-align: middle;
+    text-align: center;
+    max-width: 2.4em;
+    padding: 8px 4px;
+}
+
+.providers-matrix table:first-of-type td:nth-child(n+2) {
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* All other tables on the page keep normal left-aligned cells. */
+.providers-matrix table:not(:first-of-type) th,
+.providers-matrix table:not(:first-of-type) td {
+    writing-mode: horizontal-tb;
+    transform: none;
+    text-align: left;
+    white-space: normal;
+}
