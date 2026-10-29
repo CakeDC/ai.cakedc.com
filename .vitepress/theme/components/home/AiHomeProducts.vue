@@ -16,15 +16,15 @@
         </li>
       </ul>
       <div class="ai-list">
-        <article v-for="p in plugins" :key="p.slug" class="ai-row">
-          <span class="ai-cat">{{ p.category }}</span>
+        <article v-for="p in resources" :key="p.slug" class="ai-row">
+          <span class="ai-cat">{{ typeLabels[p.type] }}</span>
           <div>
-            <h3 class="ai-h3">{{ p.title }}</h3>
+            <h3 class="ai-h3">{{ p.title }}<span v-if="p.isNew" class="ai-new">New</span></h3>
             <p class="ai-composer">{{ p.composer }}</p>
           </div>
           <p class="ai-desc">{{ p.details }}</p>
           <div class="ai-card-links">
-            <a class="ai-card-link" :href="p.link">Docs →</a>
+            <a v-if="p.link" class="ai-card-link" :href="p.link">Docs →</a>
             <a
               v-if="p.github"
               class="ai-card-link ai-gh-link"
@@ -46,7 +46,7 @@
 <script setup>
 import { resources, typeCounts, suggestUrl } from './hub-data.js'
 
-const plugins = resources.filter((r) => r.type === 'plugin')
+const typeLabels = Object.fromEntries(typeCounts.map((t) => [t.type, t.label.replace(/s$/, '')]))
 </script>
 
 <style scoped>
@@ -101,7 +101,7 @@ const plugins = resources.filter((r) => r.type === 'plugin')
 
 .ai-row {
   display: grid;
-  grid-template-columns: 80px 220px 1fr 140px;
+  grid-template-columns: 110px 220px 1fr 140px;
   gap: 24px;
   align-items: center;
   padding: 24px 0;
@@ -121,6 +121,19 @@ const plugins = resources.filter((r) => r.type === 'plugin')
   font-size: calc(var(--ai-fs-h3-row) * var(--ai-font-scale, 1));
   font-weight: 600;
   color: var(--ai-text-primary);
+}
+
+.ai-new {
+  margin-left: 10px;
+  padding: 2px 8px;
+  font-family: var(--ai-font-mono);
+  font-size: calc(var(--ai-fs-tag) * var(--ai-font-scale, 1));
+  font-weight: 500;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: #fff;
+  background: var(--ai-brand-1);
+  border-radius: 999px;
 }
 
 .ai-composer {

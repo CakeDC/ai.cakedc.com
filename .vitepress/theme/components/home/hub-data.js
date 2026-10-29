@@ -1,6 +1,6 @@
 // Hub catalog data for the home page. Entries mirror .vitepress/plugins-config.js
 // and link to existing pages only. `type` drives the resource-type tiles; a type
-// with no entries renders as "Soon".
+// with no entries renders as "Soon". `isNew: true` shows a "New" badge on the row.
 const org = 'https://github.com/crustum'
 
 export const suggestUrl = 'https://github.com/CakeDC/ai.cakedc.com/issues/new?title=Suggest+a+resource'
@@ -78,6 +78,16 @@ export const resources = [
     slug: 'demo', type: 'plugin', title: 'AiDemo', composer: 'cakephp/app skeleton', category: 'demo',
     details: 'Runnable demo application: an Assistant agent with four tools (weather, location, temperature conversion, approval-gated email) over HTTP and console.',
     link: '/demo/', github: org,
+  },
+  {
+    slug: 'cakedc-mcp', type: 'mcp-server', isNew: true, title: 'CakeDC MCP', composer: 'cakedc/cakephp-mcp', category: 'protocol',
+    details: 'MCP server for CakePHP: mark methods in your application with an attribute to expose them to MCP clients, run through the bundled mcp-server binary. Early stage, README is still a stub.',
+    link: null, github: 'https://github.com/CakeDC/cakephp-mcp',
+  },
+  {
+    slug: 'synapse', type: 'mcp-server', title: 'Synapse', composer: 'josbeir/cakephp-synapse', category: 'protocol',
+    details: 'Community MCP server plugin for CakePHP 5.2+, meant as a development dependency. Built-in tools for database schema, routes, logs, cache and ORM introspection, full-text search of the CakePHP docs, and attribute-based custom tools, resources and prompts. MIT, pre-1.0.',
+    link: null, github: 'https://github.com/josbeir/cakephp-synapse',
   },
 ]
 
