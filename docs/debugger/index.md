@@ -2,7 +2,7 @@
 description: 'Debugger: discover agents, stream playground chat, inspect runs. Backend is AiNexus.'
 ---
 
-# Debugger
+# Nexus agent discoverer and debugger
 
 Building an agent is a tight loop: change the prompt, run it, check the tool
 calls, repeat. The debugger moves that loop into a browser, away from log files
@@ -69,6 +69,8 @@ The file loads via `Configure::load('ai_nexus')`.
 
 ## Discovery: pick an agent
 
+![Discovery Page](images/nexus-discovery.png)
+
 The landing screen is an Agents grid, rescanned from your configured agent
 paths on every request. There is no cache, so a new agent class shows up on reload.
 Each card shows the agent name, its provider and model (or model tier), and its
@@ -87,6 +89,8 @@ Click a card to open that agent in the playground. The info action on a card
 opens the same playground with the agent-info panel already visible.
 
 ## Playground: chat and inspect
+
+![Chat and Inspect Page](images/nexus-chat.png)
 
 The playground is one chat column: agent header on top, scrolling thread in the
 middle, composer at the bottom. The URL carries the state

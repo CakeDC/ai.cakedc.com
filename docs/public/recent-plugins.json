@@ -29,7 +29,7 @@
     "slug": "AiNexus",
     "path": "/debugger/index",
     "name": "AiNexus",
-    "githubUrl": null
+    "githubUrl": "https://github.com/Crustum/ai-nexus"
   },
   {
     "title": "Panifex",
@@ -37,7 +37,7 @@
     "slug": "Panifex",
     "path": "/panifex/",
     "name": "Panifex",
-    "githubUrl": null
+    "githubUrl": "https://github.com/Crustum/panifex"
   },
   {
     "title": "MCP",

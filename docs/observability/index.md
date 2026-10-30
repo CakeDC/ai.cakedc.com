@@ -7,9 +7,14 @@ description: 'Record and inspect AI operations: traces, spans, costs, dashboard.
 
 AiObservability (`crustum/ai-observability`, `Crustum\AiObservability`) records and displays the AI operations performed by applications using the `crustum/ai` plugin. It listens to supported SDK events and builds a trace of each agent run — model steps, tool calls, streaming lifecycle, token usage, latency, errors, and provider failover — plus standalone embedding, reranking, image, audio, and transcription operations. A Vue dashboard renders the overview, trace timelines, and conversation views.
 
+![Traces Index Page](images/observ-traces.png)
+
 It is not an AI framework: no agents, prompts, tools, or model routing — keep using `crustum/ai` directly for all of that. It records only provider-visible data the SDK exposes, never hidden model reasoning, and recorder failures are isolated so a persistence problem can never interrupt or replace an AI response.
 
 > Prompts, responses, tool arguments, and tool results may contain credentials and personal data. Review capture controls, redaction, authorization, and retention before enabling recording outside a local environment.
+
+![Example of single trace preview](images/observ-popup.png)
+
 
 ## Requirements
 

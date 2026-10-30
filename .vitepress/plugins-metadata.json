@@ -13,7 +13,7 @@
     "slug": "AiInteraction",
     "path": "/interaction/",
     "name": "AiInteraction",
-    "githubUrl": "https://github.com/Crustum/ai-interaction"
+    "githubUrl": null
   },
   {
     "title": "AiNexus",
@@ -22,14 +22,14 @@
     "path": "/debugger/index",
     "name": "AiNexus",
     "githubUrl": "https://github.com/Crustum/ai-nexus"
- },
+  },
   {
     "title": "AiTui",
     "description": "Fastest way in: terminal chat with any agent via a single ai chat command — key bindings, input recall and tool-call cards on AiInteraction turns.",
     "slug": "AiTui",
     "path": "/interaction/tui",
     "name": "AiTui",
-    "githubUrl": "https://github.com/Crustum/ai-tui"
+    "githubUrl": null
   },
   {
     "title": "CakePHP AI",

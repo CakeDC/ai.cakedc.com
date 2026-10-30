@@ -271,13 +271,13 @@ export default defineConfig({
                     { text: 'Retrieval', link: '/rag/retrieval' }
                 ]
             },
-            // {
-                // text: 'Observability',
-                // collapsed: false,
-                // items: [
-                    // { text: 'Overview', link: '/observability/' }
-                // ]
-            // },
+            {
+                text: 'Observability',
+                collapsed: false,
+                items: [
+                    { text: 'Overview', link: '/observability/' }
+                ]
+            },
             {
                 text: 'Panifex',
                 collapsed: false,
